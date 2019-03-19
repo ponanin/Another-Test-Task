@@ -1,0 +1,65 @@
+@import '../var';
+
+.mat-select {
+  position: relative;
+  height: 100%;
+  display: flex;
+  width: 100%;
+  align-items: center;
+
+  &--no-w {
+    width: auto;
+  }
+
+  &__label {
+    padding: 5px 0;
+    font-size: 12px;
+    margin-right: 5px;
+  }
+
+  &__el {
+    flex-grow: 1;
+    border-radius: 2px;
+    background-color: #ffffff;
+    border: solid 1px #eeeeee;
+    height: 30px;
+    -moz-appearance: none;
+    padding: 2px 18px 2px 9px;
+    outline: 0;
+
+    &:-moz-focusring {
+      color: transparent;
+      text-shadow: 0 0 0 #000;
+    }
+
+    -webkit-appearance: none;
+
+    &::-ms-expand {
+      display: none;
+    }
+
+  }
+
+  &--small {
+    height: 35px;
+  }
+
+  &__wrap {
+    position: relative;
+
+    &:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      width: 0;
+      height: 0;
+      right: 5px;
+      bottom: 0;
+      margin: auto;
+      border-style: solid;
+      pointer-events: none;
+      border-width: 6px 3px 0 3px;
+      border-color: $black-color transparent transparent transparent;
+    }
+  }
+}

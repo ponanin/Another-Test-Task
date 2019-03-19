@@ -1,0 +1,19 @@
+<div class="second-form">
+    <div class="second-form__content">
+        <app-search-bar (onSearch)="search($event)"></app-search-bar>
+        <app-data-grid
+                class="second-form__grid"
+                [config]="dataGridConfig"
+                [columns]="columns"
+                [rows]="items$ | async"
+        ></app-data-grid>
+    </div>
+</div>
+
+<ng-template #data let-data="data">
+    <app-second-form-data
+            [data]="data"
+            (dataChange)="onRowChange(data.id, $event)"
+            (onRemove)="onRowRemove(data.id)"
+    ></app-second-form-data>
+</ng-template>

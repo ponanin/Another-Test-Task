@@ -1,0 +1,45 @@
+<div class="second-form-data" [formGroup]="form">
+    <div class="second-form-data__main">
+        <dl>
+            <dt>Имя: </dt>
+            <dd>
+                <app-editable-row formControlName="name"></app-editable-row>
+            </dd>
+            <dt>Фамилия: </dt>
+            <dd>
+                <app-editable-row formControlName="surname"></app-editable-row>
+            </dd>
+            <dt>Описание: </dt>
+            <dd>
+                <app-editable-row formControlName="description"></app-editable-row>
+            </dd>
+        </dl>
+    </div>
+
+    <div class="second-form-data__card" formGroupName="card">
+            <span class="second-form-data__card-title">
+                Карта
+            </span>
+        <dl>
+            <dt>Телефон: </dt>
+            <dd>
+                <app-editable-row formControlName="phone"></app-editable-row>
+            </dd>
+            <dt>Email: </dt>
+            <dd>
+                <app-editable-row formControlName="email"></app-editable-row>
+            </dd>
+        </dl>
+
+    </div>
+
+    <div class="second-form-data__additional">
+        <div class="second-form-data__icon-wrapper" (click)="remove()">
+            <span class="second-form-data__remove-icon"></span>
+        </div>
+        <div class="second-form-data__statuses">
+            <span> {{ status }}</span>
+        </div>
+    </div>
+
+</div>

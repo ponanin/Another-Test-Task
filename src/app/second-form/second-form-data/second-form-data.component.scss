@@ -1,0 +1,47 @@
+@import '../../../assets/scss/var';
+
+.second-form-data {
+  display: flex;
+  width: 100%;
+
+  &__main {
+    flex: 1;
+    display: flex;
+    padding: 10px;
+  }
+
+  &__card {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    box-shadow: $material-shadow;
+  }
+
+  &__additional {
+    flex: 0.5;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+
+  &__icon-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__remove-icon {
+    height: 25px;
+    width: 25px;
+    background: url('/assets/icons/trash.png') no-repeat;
+    background-size: cover;
+    cursor: pointer;
+  }
+
+  &__statuses {
+    color: $red-color;
+    font-size: 12px;
+  }
+}

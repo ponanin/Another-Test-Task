@@ -1,0 +1,31 @@
+<div class="grid">
+    <div class="grid__row grid__row--heading" *ngIf="config.isHeaderVisible">
+        <div *ngFor="let column of columns"
+             class="grid__column grid__column--heading"
+             [ngClass]="{'grid__column--clickable' : column.sort !== false}"
+             (click)="onHeaderColumnClick(column)"
+        >
+            {{ column.title }}
+            <span *ngIf="column.sort !== false && column.sort !== DataGridSortType.ASC">▲</span>
+            <span *ngIf="column.sort !== false && column.sort !== DataGridSortType.DESC">▼</span>
+        </div>
+    </div>
+
+    <div class="grid__row" *ngFor="let row of rows">
+        <div
+                class="grid__column"
+                *ngFor="let column of columns"
+                (click)="cellClick(row, column)"
+        >
+            <ng-container
+                    *ngIf="column.template"
+                    [ngTemplateOutlet]="column.template"
+                    [ngTemplateOutletContext]="{data: row}"
+            ></ng-container>
+            <span *ngIf="!column.template" [innerHTML]="getRowData(row, column.name)">
+            </span>
+        </div>
+    </div>
+
+
+</div>

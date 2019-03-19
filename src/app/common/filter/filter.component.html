@@ -1,0 +1,15 @@
+<div class="filter">
+    <div class="filter-block" *ngFor="let filterParam of filterParams; let index = index">
+        <span class="filter-block__title">
+            {{ filterParam.title }}
+        </span>
+        <div *ngFor="let filterOption of filterParam.data">
+            <input
+                    type="checkbox"
+                    (change)="onFilterChange($event, index, filterOption)"
+            />
+            <span> {{ filterOption.title }}</span>
+        </div>
+    </div>
+<!--TODO: поменять функционал на нажатие по кнопке применить-->
+</div>

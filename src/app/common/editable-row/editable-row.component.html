@@ -1,0 +1,10 @@
+<span *ngIf="!isEdit" (click)="toggleEdit($event)">{{ hiddenValue }}</span>
+<input
+        *ngIf="isEdit"
+        type="text"
+        [(ngModel)]="hiddenValue"
+        (keyup.enter)="onChange()"
+        #input
+/>
+
+

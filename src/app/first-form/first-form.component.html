@@ -1,0 +1,38 @@
+<div class="first-form">
+    <div class="first-form__content">
+        <app-search-bar (onSearch)="search($event)"></app-search-bar>
+        <app-data-grid
+                class="first-form__grid"
+                [columns]="columns"
+                [rows]="items$ | async"
+                (onCellClick)="cellClick($event)"
+                (onSort)="onSort($event)"
+        ></app-data-grid>
+    </div>
+    <!--TODO: вынести по компонентам-->
+    <ng-template #status let-status="data.status">
+        <div class="first-form__icon-wrapper">
+            <!--TODO: tooltip-->
+            <span class="first-form__status-icon"
+                  [ngClass]="{
+                    'first-form__status-icon__red' : status === statuses.error,
+                    'first-form__status-icon__yellow' : status === statuses.warning,
+                    'first-form__status-icon__green' : status === statuses.complete
+                }"
+            ></span>
+        </div>
+    </ng-template>
+    <ng-template #relations let-relations="data.relateItems">
+        <div class="first-form__relations">
+            <div class="first-form__relation" *ngFor="let relation of relations">
+                {{ relation.name }}
+            </div>
+        </div>
+    </ng-template>
+
+    <ng-template #remove>
+        <div class="first-form__icon-wrapper">
+            <span class="first-form__remove-icon"></span>
+        </div>
+    </ng-template>
+</div>

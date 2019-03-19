@@ -1,0 +1,33 @@
+@import '../../assets/scss/var';
+@import '../../assets/scss/blocks';
+
+.header {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 8px 16px;
+  background: $main-theme-color;
+  justify-content: flex-end;
+  color: $white-color;
+
+  &__item {
+    min-width: 88px;
+    line-height: 36px;
+    padding: 0 16px;
+    border-radius: 2px;
+    transition: .3s;
+    text-decoration: none;
+
+    &:active, &:visited {
+      color: $white-color;
+    }
+
+    &:hover {
+      cursor: pointer;
+      background: rgba(0, 0, 0, 0.2);
+    }
+
+    &--active {
+      text-decoration: underline;
+    }
+  }
+}
